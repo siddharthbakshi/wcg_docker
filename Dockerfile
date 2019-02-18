@@ -1,17 +1,10 @@
-FROM centos:latest
+FROM centos:7
 MAINTAINER sbakshi
 
 ##Install BOINC
-RUN yum -y update
-RUN yum -y install wget
-RUN wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-RUN yum -y localinstall http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-RUN yum install -y boinc-client
-#RUN export PATH=/etc/init.d/boinc-client:$PATH
+RUN yum -y install epel-release
+RUN yum -y install boinc-client
+RUN yum -y clean all
 
-##Set working directory
-# WORKDIR /var/lib/boinc
-
-##Run BOINC by default. Expects env vars for url and account key
+##Start BOINC
 CMD boinc --attach_project ${boincurl} ${boinckey}
-#tail -f /var/boinc/std*.txt

@@ -5,6 +5,8 @@ RUN yum -y install epel-release
 RUN yum -y install boinc-client
 RUN yum -y clean all
 
+COPY /global_prefs_override.xml /
+
 ENV boincurl www.worldcommunitygrid.org
 ENV boinckey 0306042ebf9cb4311fef19de74b91a2e
 

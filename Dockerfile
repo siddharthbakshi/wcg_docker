@@ -4,6 +4,8 @@ MAINTAINER Siddharth Bakshi
 RUN yum -y install epel-release
 RUN yum -y install boinc-client
 RUN yum -y clean all
+RUN chmod g+rw /var/lib/boinc-client
+RUN chmod g+rw /var/lib/boinc-client/*.*
 
 ENV boincurl www.worldcommunitygrid.org
 ENV boinckey 0306042ebf9cb4311fef19de74b91a2e

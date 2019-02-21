@@ -17,14 +17,14 @@ spec:
           image: siddharthbakshi/wcg_centos
           ports:
             - containerPort: 8080
-    env:
-    - name: boincurl
-      valueFrom:
-        configMapKeyRef:
-          name: boinc-url-key
-          key: boincurl
-    - name: boinckey
-      valueFrom:
-        configMapKeyRef:
-          name: boinc-url-key
-          key: boinckey
+          env:
+          - name: boincurl
+            valueFrom:
+              configMapKeyRef:
+                name: boinc-url-key
+                key: boincurl
+          - name: boinckey
+            valueFrom:
+              configMapKeyRef:
+                name: boinc-url-key
+                key: boinckey

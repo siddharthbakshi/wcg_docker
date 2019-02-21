@@ -8,4 +8,4 @@ RUN yum -y clean all
 ENV boincurl www.worldcommunitygrid.org
 ENV boinckey 0306042ebf9cb4311fef19de74b91a2e
 
-CMD boinc --attach_project ${boincurl} ${boinckey} --allow_multiple_clients
+CMD boinc --attach_project ${boincurl} ${boinckey} --allow_multiple_clients --allow_remote_gui_rpc

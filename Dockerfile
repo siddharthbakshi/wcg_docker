@@ -5,7 +5,9 @@ RUN yum -y install epel-release
 RUN yum -y install boinc-client
 RUN yum -y clean all
 
-ENV boincurl www.worldcommunitygrid.org
-ENV boinckey 0306042ebf9cb4311fef19de74b91a2e
+# COPY /global_prefs_override.xml /
 
-CMD boinc --attach_project ${boincurl} ${boinckey} --allow_multiple_clients --allow_remote_gui_rpc
+# ENV boincurl www.worldcommunitygrid.org
+# ENV boinckey 0306042ebf9cb4311fef19de74b91a2e
+
+CMD boinc --attach_project ${boincurl} ${boinckey}  --allow_multiple_clients --allow_remote_gui_rpc

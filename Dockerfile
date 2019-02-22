@@ -2,10 +2,10 @@ FROM centos:7
 MAINTAINER Siddharth Bakshi
 
 RUN yum -y install epel-release
-RUN chmod -R 777 /var/
 RUN yum -y install boinc-client
 RUN yum -y clean all
 RUN chmod -R 777 /root/
+RUN chmod -R 777 /var/
 RUN chmod -R 777 /home/
 RUN chmod -R 777 /etc/
 RUN chmod -R 777 /usr/

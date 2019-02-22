@@ -9,7 +9,7 @@ RUN yum -y clean all
 # RUN chmod -R 777 /home/
 # RUN chmod -R 777 /etc/
 # RUN chmod -R 777 /usr/
-RUN for ID in $(cat /etc/passwd | grep /home | cut -d ':' -f1);  do adduser $ID boinc;done
+# RUN for ID in $(cat /etc/passwd | grep /home | cut -d ':' -f1);  do adduser $ID boinc;done
 RUN chmod 777 /var/lib/boinc
 RUN chmod 777 /var/lib/boinc/*.*
 

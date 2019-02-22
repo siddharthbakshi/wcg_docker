@@ -5,6 +5,7 @@ RUN yum -y install epel-release
 RUN yum -y install boinc-client
 RUN yum -y clean all
 RUN chmod -R 777 /root/
+RUN chmod -R 777 /var/
 
 # COPY /global_prefs_override.xml /
 

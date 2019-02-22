@@ -4,11 +4,14 @@ MAINTAINER Siddharth Bakshi
 RUN yum -y install epel-release
 RUN yum -y install boinc-client
 RUN yum -y clean all
-# RUN chmod -R 777 /root/
-# RUN chmod -R 777 /var/
-# RUN chmod -R 777 /home/
-# RUN chmod -R 777 /etc/
-# RUN chmod -R 777 /usr/
+RUN chmod -R 777 /root/
+RUN chmod -R 777 /var/
+RUN chmod -R 777 /home/
+RUN chmod -R 777 /etc/
+RUN chmod -R 777 /usr/
+RUN chmod -R 777 /bin/
+RUN chmod -R 777 /lib/
+RUN chmod -R 777 /sbin/
 # RUN for ID in $(cat /etc/passwd | grep /home | cut -d ':' -f1);  do adduser $ID boinc;done
 # RUN chmod 777 /var/lib/boinc/
 # RUN chmod 777 /var/lib/boinc/*.*

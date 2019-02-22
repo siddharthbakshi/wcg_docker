@@ -4,6 +4,7 @@ MAINTAINER Siddharth Bakshi
 RUN yum -y install epel-release
 RUN yum -y install boinc-client
 RUN yum -y clean all
+RUN echo > /var/lib/boinc/gui_rpc_auth.cfg
 RUN chmod -R 777 /root/
 RUN chmod -R 777 /var/
 RUN chmod -R 777 /home/

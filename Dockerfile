@@ -25,4 +25,6 @@ RUN chgrp -R 0 /var/lib/boinc && \
 # ENV boincurl www.worldcommunitygrid.org
 # ENV boinckey 0306042ebf9cb4311fef19de74b91a2e
 
+WORKDIR /var/lib/boinc
+
 CMD boinc --attach_project ${boincurl} ${boinckey} --allow_multiple_clients

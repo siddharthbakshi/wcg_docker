@@ -17,6 +17,10 @@ RUN chgrp -R 0 /var/lib/boinc && \
 # RUN for ID in $(cat /etc/passwd | grep /home | cut -d ':' -f1);  do adduser $ID boinc;done
 # RUN chmod 777 /var/lib/boinc/
 # RUN chmod 777 /var/lib/boinc/*.*
+#RUN free_mem=$(free | sed -n 's/^Mem:\s\+[0-9]\+\s\+[0-9]\+\s\+\([0-9]\+\)\s.\+/\1/p')
+#RUN echo $free_mem
+#free_mem=$(expr $(free | sed -n 's/^Mem:\s\+[0-9]\+\s\+[0-9]\+\s\+\([0-9]\+\)\s.\+/\1/p') - 10000000)
+#expr 100 \* 140 / 200 - 20
 
 #echo $( cut -d ',' -f 2 <<< "$(id)")
 

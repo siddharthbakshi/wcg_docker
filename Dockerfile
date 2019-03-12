@@ -31,4 +31,4 @@ RUN chgrp -R 0 /var/lib/boinc && \
 
 WORKDIR /var/lib/boinc
 
-CMD boinc --attach_project ${boincurl} ${boinckey} --allow_multiple_clients && free_mem=$(expr $(free | sed -n 's/^Mem:\s\+[0-9]\+\s\+[0-9]\+\s\+\([0-9]\+\)\s.\+/\1/p') - 10000000)
+CMD free_mem=$(expr $(free | sed -n 's/^Mem:\s\+[0-9]\+\s\+[0-9]\+\s\+\([0-9]\+\)\s.\+/\1/p') - 10000000) && boinc --attach_project ${boincurl} ${boinckey} --allow_multiple_clients

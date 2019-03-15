@@ -23,7 +23,7 @@ RUN chgrp -R 0 /var/lib/boinc && \
 #free_mem=$(free | sed -n 's/^Mem:\s\+[0-9]\+\s\+[0-9]\+\s\+\([0-9]\+\)\s.\+/\1/p')
 #expr 100 \* 140 / 200 - 20
 #RUN echo hello_world >foo.txt
-RUN chmod 777 /sys/fs/cgroup
+#RUN chmod 777 /sys/fs/cgroup
 
 #echo $( cut -d ',' -f 2 <<< "$(id)")
 

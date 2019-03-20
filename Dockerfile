@@ -27,11 +27,11 @@ RUN chgrp -R 0 /var/lib/boinc && \
 
 #echo $( cut -d ',' -f 2 <<< "$(id)")
 
-# COPY /global_prefs_override.xml /
+COPY /set_resource_limits.py /var/lib/boinc
 
 # ENV boincurl www.worldcommunitygrid.org
 # ENV boinckey 0306042ebf9cb4311fef19de74b91a2e
 
 WORKDIR /var/lib/boinc
 
-CMD boinc --attach_project ${boincurl} ${boinckey} --allow_multiple_clients
+CMD python set_resource_limits.py && boinc --attach_project ${boincurl} ${boinckey} --allow_multiple_clients

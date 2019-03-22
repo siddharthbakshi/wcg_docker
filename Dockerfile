@@ -25,6 +25,7 @@ RUN chgrp -R 0 /var/lib/boinc && \
 #RUN echo hello_world >foo.txt
 #RUN chmod 777 /sys/fs/cgroup
 
+#grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print usage "%"}'
 #echo $( cut -d ',' -f 2 <<< "$(id)")
 
 COPY /set_resource_limits.py /var/lib/boinc

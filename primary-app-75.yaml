@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
-  name: primary-50
+  name: primary-75
   namespace: bu528-stop-wasting-the-cloud
 spec:
   replicas: 10

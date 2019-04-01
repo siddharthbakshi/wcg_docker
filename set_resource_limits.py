@@ -45,7 +45,7 @@ xml_file='''<global_preferences>
   <dont_verify_images>0</dont_verify_images>
   <work_buf_min_days>0.100000</work_buf_min_days>
   <work_buf_additional_days>0.000000</work_buf_additional_days>
-  <max_ncpus_pct>100.000000</max_ncpus_pct>
+  <max_ncpus_pct>'''+str(max_cpu_pct)+'''</max_ncpus_pct>
   <cpu_scheduling_period_minutes>60.000000</cpu_scheduling_period_minutes>
   <disk_interval>60.000000</disk_interval>
   <disk_max_used_gb>100.000000</disk_max_used_gb>
@@ -56,7 +56,7 @@ xml_file='''<global_preferences>
   <ram_max_used_idle_pct>100.000000</ram_max_used_idle_pct>
   <max_bytes_sec_up>0.000000</max_bytes_sec_up>
   <max_bytes_sec_down>0.000000</max_bytes_sec_down>
-  <cpu_usage_limit>'''+str(max_cpu_pct)+'''</cpu_usage_limit>
+  <cpu_usage_limit>100.000000</cpu_usage_limit>
   <daily_xfer_limit_mb>0.000000</daily_xfer_limit_mb>
   <daily_xfer_period_days>0</daily_xfer_period_days>
   <day_prefs> ]

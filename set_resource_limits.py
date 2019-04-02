@@ -34,7 +34,6 @@ xml_file='''<global_preferences>
   <run_on_batteries>0</run_on_batteries>
   <run_if_user_active>1</run_if_user_active>
   <run_gpu_if_user_active>0</run_gpu_if_user_active>
-  <suspend_cpu_usage>30.000000</suspend_cpu_usage>
   <start_hour>0.000000</start_hour>
   <end_hour>0.000000</end_hour>
   <net_start_hour>0.000000</net_start_hour>
@@ -45,7 +44,7 @@ xml_file='''<global_preferences>
   <dont_verify_images>0</dont_verify_images>
   <work_buf_min_days>0.100000</work_buf_min_days>
   <work_buf_additional_days>0.000000</work_buf_additional_days>
-  <max_ncpus_pct>'''+str(max_cpu_pct)+'''</max_ncpus_pct>
+  <max_ncpus_pct>100.000000</max_ncpus_pct>
   <cpu_scheduling_period_minutes>60.000000</cpu_scheduling_period_minutes>
   <disk_interval>60.000000</disk_interval>
   <disk_max_used_gb>100.000000</disk_max_used_gb>

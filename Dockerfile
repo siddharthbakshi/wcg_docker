@@ -4,7 +4,9 @@ MAINTAINER Siddharth Bakshi
 RUN yum -y install epel-release
 RUN yum -y install boinc-client
 RUN yum -y install libcgroup
+RUN yum -y install gcc openssl-devel bzip2-devel
 RUN yum -y install python-pip
+RUN pip install --upgrade pip
 RUN yum -y install gcc python-dev
 RUN pip install psutil
 RUN yum -y clean all

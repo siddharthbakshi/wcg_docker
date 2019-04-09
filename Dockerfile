@@ -5,6 +5,13 @@ RUN yum -y install epel-release
 RUN yum -y install boinc-client
 RUN yum -y install libcgroup
 RUN yum -y install gcc openssl-devel bzip2-devel
+RUN cd /usr/src
+RUN wget https://www.python.org/ftp/python/3.6.8/Python-3.6.8.tgz
+RUN tar xzf Python-3.6.8.tgz
+RUN cd Python-3.6.8
+RUN ./configure --enable-optimizations
+RUN make altinstall
+RUN rm /usr/src/Python-3.6.8.tgz
 RUN yum -y install python-pip
 RUN pip install --upgrade pip
 RUN yum -y install gcc python-dev

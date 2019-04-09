@@ -4,6 +4,8 @@ MAINTAINER Siddharth Bakshi
 RUN yum -y install epel-release
 RUN yum -y install boinc-client
 RUN yum -y install libcgroup
+RUN yum -y install gcc python-dev
+RUN pip3 install psutil
 RUN yum -y clean all
 # RUN chmod -R 777 /root/
 # RUN chmod -R 777 /var/

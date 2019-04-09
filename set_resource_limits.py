@@ -44,7 +44,6 @@ xml_file='''<global_preferences>
   <dont_verify_images>0</dont_verify_images>
   <work_buf_min_days>0.100000</work_buf_min_days>
   <work_buf_additional_days>0.000000</work_buf_additional_days>
-  <max_ncpus_pct>100.000000</max_ncpus_pct>
   <cpu_scheduling_period_minutes>60.000000</cpu_scheduling_period_minutes>
   <disk_interval>60.000000</disk_interval>
   <disk_max_used_gb>100.000000</disk_max_used_gb>

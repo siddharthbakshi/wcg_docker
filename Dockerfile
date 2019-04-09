@@ -14,9 +14,9 @@ RUN yum -y install libcgroup
 # RUN rm /usr/src/Python-3.6.8.tgz
 RUN yum -y install python-pip
 RUN pip install --upgrade pip
-RUN yum -y install gcc python-dev
+# RUN yum -y install gcc python-dev
 RUN yum -y install gcc python2-devel
-RUN yum -y install gcc python3-devel
+# RUN yum -y install gcc python3-devel
 RUN pip install --upgrade setuptools
 RUN pip install psutil
 RUN yum -y clean all

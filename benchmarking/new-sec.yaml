@@ -1,10 +1,9 @@
 apiVersion: apps/v1
-kind: ReplicaSet
+kind: DaemonSet
 metadata:
-  name: test-primary
+  name: test-sec
   namespace: bu528-stop-wasting-the-cloud
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: wcg
@@ -16,16 +15,16 @@ spec:
       nodeName: k007
       containers:
       - name: latest
-        image: anshugoe/primary
+        image: siddharthbakshi/wcg_centos
         ports:
           - containerPort: 8080
         resources:
           requests:
-            cpu: "2"
-            memory: "10Gi"
+            cpu: "100m"
+            memory: "500Mi"
           limits:
-            cpu: "2"
-            memory: "10Gi"
+            cpu: "1"
+            memory: "5Gi"
         env:
         - name: boincurl
           valueFrom:

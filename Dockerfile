@@ -17,8 +17,6 @@ RUN pip install --upgrade pip
 RUN yum -y install gcc python2-devel
 RUN pip install --upgrade setuptools
 RUN pip install psutil
-RUN pip install numpy
-RUN pip install pandas
 RUN yum -y clean all
 # RUN chmod -R 777 /root/
 # RUN chmod -R 777 /var/
@@ -43,11 +41,11 @@ RUN chgrp -R 0 /var/lib/boinc && \
 #grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print usage "%"}'
 #echo $( cut -d ',' -f 2 <<< "$(id)")
 
-COPY /set_resource_limits.py /var/lib/boinc
+COPY /set_resource_limits.py /cpulimit.c /Makefile /var/lib/boinc
 
 # ENV boincurl www.worldcommunitygrid.org
 # ENV boinckey 0306042ebf9cb4311fef19de74b91a2e
 
 WORKDIR /var/lib/boinc
 
-CMD python set_resource_limits.py && boinc --attach_project ${boincurl} ${boinckey} --allow_multiple_clients
+CMD python set_resource_limits.py && make $(boincmaxcpu) $$ boinc --attach_project ${boincurl} ${boinckey} --allow_multiple_clients

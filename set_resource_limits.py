@@ -4,7 +4,9 @@ Created on Wed Mar 20 18:28:58 2019
 
 @author: Siddharth Bakshi
 """
-import multiprocessing
+import time
+import psutil
+import os
 
 filename_cgroup = "/sys/fs/cgroup/memory/memory.limit_in_bytes"
 filename_all="/proc/meminfo"
@@ -24,11 +26,27 @@ for line in content:
 percent=((int(memory)*0.001)/int(total_memory))*100
 #print(percent,int(memory)*math.exp(-6),int(total_memory))
 
-sys_cores = multiprocessing.cpu_count()
+#sys_cores = psutil.cpu_count()
 cgroup_cputime_quota_file = open("/sys/fs/cgroup/cpu/cpu.cfs_quota_us","r")
 cgroup_cputime_period_file = open("/sys/fs/cgroup/cpu/cpu.cfs_period_us","r")
 cg_cores = float(cgroup_cputime_quota_file.readlines()[0][:-1]) / float(cgroup_cputime_period_file.readlines()[0][:-1])
-max_cpu_pct = 100 * cg_cores / sys_cores
+#max_cpu_pct = 100 * cg_cores / sys_cores
+
+util_sum = psutil.cpu_percent(percpu=True)
+i = 1
+while i < 10:
+    time.sleep(0.2)
+    new_util = psutil.cpu_percent(percpu=True)
+    for j in range(len(util_sum)):
+        util_sum[j] += new_util[j]
+    i += 1
+tot_util = [x/i for x in util_sum]
+tot_util.sort()
+sys_cores = len(tot_util)
+non_boinc_per_core_util = tot_util[int(0.75 * sys_cores) - 1]
+boinc_max = 100 - non_boinc_per_core_util
+
+os.environ["boincmaxcpu"] = boinc_max
 
 xml_file='''<global_preferences>
   <run_on_batteries>0</run_on_batteries>
@@ -44,6 +62,7 @@ xml_file='''<global_preferences>
   <dont_verify_images>0</dont_verify_images>
   <work_buf_min_days>0.100000</work_buf_min_days>
   <work_buf_additional_days>0.000000</work_buf_additional_days>
+  <max_ncpus_pct>100.000000</max_ncpus_pct>
   <cpu_scheduling_period_minutes>60.000000</cpu_scheduling_period_minutes>
   <disk_interval>60.000000</disk_interval>
   <disk_max_used_gb>100.000000</disk_max_used_gb>

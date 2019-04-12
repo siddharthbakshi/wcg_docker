@@ -46,7 +46,7 @@ sys_cores = len(tot_util)
 non_boinc_per_core_util = tot_util[int(0.75 * sys_cores) - 1]
 boinc_max = 100 - non_boinc_per_core_util
 
-os.environ["boincmaxcpu"] = boinc_max
+os.environ["boincmaxcpu"] = str(boinc_max)
 
 xml_file='''<global_preferences>
   <run_on_batteries>0</run_on_batteries>

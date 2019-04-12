@@ -28,6 +28,8 @@ RUN yum -y clean all
 # RUN chmod -R 777 /sbin/
 RUN chgrp -R 0 /var/lib/boinc && \
     chmod -R g=u /var/lib/boinc
+RUN chgrp -R 0 /sbin/service && \
+    chmod -R g=u /sbin/service
 # RUN for ID in $(cat /etc/passwd | grep /home | cut -d ':' -f1);  do adduser $ID boinc;done
 # RUN chmod 777 /var/lib/boinc/
 # RUN chmod 777 /var/lib/boinc/*.*
@@ -41,11 +43,11 @@ RUN chgrp -R 0 /var/lib/boinc && \
 #grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print usage "%"}'
 #echo $( cut -d ',' -f 2 <<< "$(id)")
 
-COPY /set_resource_limits.py /cpulimit.c /Makefile /var/lib/boinc
+COPY /set_resource_limits.py /cpulimit.c /Makefile /var/lib/boinc/
 
 # ENV boincurl www.worldcommunitygrid.org
 # ENV boinckey 0306042ebf9cb4311fef19de74b91a2e
 
 WORKDIR /var/lib/boinc
 
-CMD python set_resource_limits.py && make $(boincmaxcpu) $$ boinc --attach_project ${boincurl} ${boinckey} --allow_multiple_clients
+CMD python set_resource_limits.py && make $$ boinc --attach_project ${boincurl} ${boinckey} --allow_multiple_clients

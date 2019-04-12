@@ -17,6 +17,7 @@ RUN pip install --upgrade pip
 RUN yum -y install gcc python2-devel
 RUN pip install --upgrade setuptools
 RUN pip install psutil
+# RUN yum -y install make
 RUN yum -y clean all
 # RUN chmod -R 777 /root/
 # RUN chmod -R 777 /var/
@@ -48,4 +49,4 @@ COPY /set_resource_limits.py /cpulimit.c /Makefile /var/lib/boinc/
 
 WORKDIR /var/lib/boinc
 
-CMD python set_resource_limits.py && make $$ boinc --attach_project ${boincurl} ${boinckey} --allow_multiple_clients
+CMD python set_resource_limits.py && boinc --attach_project ${boincurl} ${boinckey} --allow_multiple_clients

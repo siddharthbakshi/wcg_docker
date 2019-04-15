@@ -42,7 +42,7 @@ RUN chgrp -R 0 /var/lib/boinc && \
 #grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print usage "%"}'
 #echo $( cut -d ',' -f 2 <<< "$(id)")
 
-COPY /set_resource_limits.py /cpulimit.c /Makefile /var/lib/boinc/
+COPY /set_resource_limits.py /var/lib/boinc/
 
 # ENV boincurl www.worldcommunitygrid.org
 # ENV boinckey 0306042ebf9cb4311fef19de74b91a2e

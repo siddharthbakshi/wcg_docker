@@ -74,6 +74,7 @@ xml_file='''<global_preferences>
   <max_bytes_sec_up>0.000000</max_bytes_sec_up>
   <max_bytes_sec_down>0.000000</max_bytes_sec_down>
   <cpu_usage_limit>100.000000</cpu_usage_limit>
+  <suspend_cpu_usage>10.0</suspend_cpu_usage>
   <daily_xfer_limit_mb>0.000000</daily_xfer_limit_mb>
   <daily_xfer_period_days>0</daily_xfer_period_days>
   <day_prefs> ]
